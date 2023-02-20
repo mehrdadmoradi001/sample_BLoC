@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sample_bloc/bloc/home_bloc.dart';
 import 'package:sample_bloc/ui/home_screen.dart';
 
 void main() {
@@ -11,7 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      home: BlocProvider(
+        create: (context) => HomeBloc(),
+        child: HomeScreen(),
+      ),
     );
   }
 }
